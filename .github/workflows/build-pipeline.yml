@@ -16,6 +16,8 @@ jobs:
         fetch-depth: 0
     - name: Build the Docker image
       run: docker build -t $docker_username/nginx:dev .
+    - name: Login to Docker echo
+      run: echo "account $docker_username / $docker_password"
     - name: Login to Docker
       run: echo "$docker_password" | docker login -u "$docker_username" --password-stdin
     - name: Push the docker image
